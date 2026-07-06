@@ -1,5 +1,7 @@
+#include <stdint.h>
 #include "keycodes.h"
 #include "keymap_danish.h"
+#include "progmem.h"
 #include "quantum_keycodes.h"
 #include QMK_KEYBOARD_H //NOLINT
 
@@ -34,9 +36,15 @@ enum layers{
 #define T_BSPC LT(_NUM_ROW, KC_BSPC)
 #define L_TAB LSFT(KC_TAB)
 
-
-
-
+// combos
+const uint16_t PROGMEM ew_combo[] = {KC_E, KC_W, COMBO_END};
+const uint16_t PROGMEM cv_combo[] = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM vb_combo[] = {KC_V, KC_B, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(ew_combo, KC_ESC),
+    COMBO(cv_combo, MS_BTN1),
+    COMBO(vb_combo, MS_BTN2),
+};
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -45,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
         DK_DQUO	   , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
         DK_QUOT	   , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
-                                             KC_LGUI   , T_ESC	   , KC_SPC	           , T_ENT	   , T_BSPC	   , KC_DEL)  ,
+                                             KC_LGUI   , T_ESC     ,KC_SPC	           , T_ENT	   , T_BSPC	   , KC_DEL)  ,
 
 
     [_NUM_ROW] = LAYOUT_split_3x6_3(
