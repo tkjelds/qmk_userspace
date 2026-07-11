@@ -16,9 +16,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_lily58_hlc(
         KC_ESC	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, DK_PLUS	,
         KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
-        DK_DQUO , HR_A	, HR_S,   HR_D,   HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
+        DK_DQUO , HR_A	, HR_S  , DK_D  , HR_F	, DK_G	,                   DK_H	, HR_J  , DK_K  , HR_L  , HR_AE , DK_OSTR 	,
         DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_NO  , KC_NO  , DK_N	, DK_M	, DK_COMM, DK_DOT,DK_UNDS, DK_MINS,
-                          KC_NO , KC_LCTL, T_ESC, KC_SPC,              T_ENT   , T_BSPC, KC_DEL , KC_NO ,
+                          KC_NO ,  T_ESC, KC_LSFT, KC_SPC,                   T_ENT , KC_LSFT,  T_BSPC,  KC_NO ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
 
@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, KC_TRNS	 	,
         KC_F1   , KC_F2 , KC_F3	, KC_F4	, KC_F5	, KC_F6 ,                   KC_LEFT , KC_DOWN, KC_UP, KC_RIGHT, KC_APP, KC_NO,
         KC_F7   , KC_F8 , KC_F9 , KC_F10, KC_F11, KC_F12	, KC_NO  , KC_NO  ,KC_HOME   , KC_PGDN   , KC_PGUP   , KC_END    , BACK     , FRNT  ,
-                          KC_TRNS	 , KC_TRNS	,MEDIA, KC_TRNS	,              ACPT , MEDIA , KC_DEL , KC_NO ,
+                          KC_TRNS	 , KC_TRNS	,MEDIA, KC_TRNS	,              ACPT , MEDIA , KC_TRNS, KC_NO ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
 
