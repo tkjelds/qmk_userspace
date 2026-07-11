@@ -6,14 +6,10 @@
 #include "progmem.h"
 #include "quantum.h"
 #include "quantum_keycodes.h"
+#include "rgb_matrix.h"
 #include "keymap.h"
 
-const uint16_t PROGMEM cv_combo[]   = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM vb_combo[]   = {KC_V, KC_B, COMBO_END};
-combo_t                key_combos[] = {
-    COMBO(cv_combo, MS_BTN1),
-    COMBO(vb_combo, MS_BTN2),
-}; // clang-format off
+// clang-format off
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_lily58_hlc(
@@ -61,6 +57,13 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 
+const uint16_t PROGMEM cv_combo[]   = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM vb_combo[]   = {KC_V, KC_B, COMBO_END};
+combo_t                key_combos[] = {
+    COMBO(cv_combo, MS_BTN1),
+    COMBO(vb_combo, MS_BTN2),
+};
+
 bool is_flow_tap_key(uint16_t keycode) {
     if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
         return false; // Disable Flow Tap on hotkeys.
@@ -77,11 +80,20 @@ bool is_flow_tap_key(uint16_t keycode) {
     return false;
 }
 
+uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+    switch (keycode) {
+        case LGUI_T(KC_A):
+            return 50;  // Disable Flow Tap for this key.
+        default:
+            return FLOW_TAP_TERM;
+    }
+}
+
 void keyboard_post_init_user(void) {
     // Set the effect.
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_RIPPLE);
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_FLOW);
     // Set the palette and maximize saturation and brightness.
-    uint8_t palette_index = PALETTEFX_POLARIZED;
+    uint8_t palette_index = PALETTEFX_BADWOLF;
     rgb_matrix_sethsv_noeeprom(RGB_MATRIX_HUE_STEP * palette_index, 255, 255);
     // Set speed to default.
     rgb_matrix_set_speed_noeeprom(64);
