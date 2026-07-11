@@ -19,11 +19,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE] = LAYOUT_lily58_hlc(
         KC_ESC	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, DK_PLUS	,
         KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
-        DK_DQUO , DK_A	, DK_S	, DK_D	, DK_F	, DK_G	,                   DK_H	, DK_J	, DK_K	, DK_L	, DK_AE , DK_OSTR 	,
-        DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_NO  , KC_NO  , DK_N	, DK_M	, DK_COMM, DK_DOT, DK_SLSH	, DK_MINS,
+        DK_DQUO , HR_A	, HR_S,   HR_D,   HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
+        DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_NO  , KC_NO  , DK_N	, DK_M	, DK_COMM, DK_DOT,DK_UNDS, DK_MINS,
                           KC_NO , KC_LCTL, T_ESC, KC_SPC,              T_ENT   , T_BSPC, KC_DEL , KC_NO ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
+
     [_NUM_ROW] = LAYOUT_lily58_hlc(
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
         KC_TRNS	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, KC_TRNS	 	,
@@ -35,17 +36,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SYMBOL] = LAYOUT_lily58_hlc(
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
-        L_TAB , DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
+        L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
         KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	, KC_NO  , KC_NO  , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                           KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
+
     [_MEDIA] = LAYOUT_lily58_hlc(
-        KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,
-        KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO 	,
-        KC_NO , KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO , KC_NO 	,
-        KC_NO , KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO  , KC_NO  , KC_NO	, KC_NO	, KC_NO, KC_NO, KC_NO	, KC_NO,
+        KC_NO , KC_NO	, KC_NO	  , KC_NO	, KC_NO	    , KC_NO	,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,
+        KC_NO , KC_NO	, RM_SPDD , RM_SPDU , KC_NO     , LMNT,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO 	,
+        KC_NO , KC_NO	 , RM_PREV  , RM_VALU , RM_VALD    , RM_NEXT   	,                  PREV, VOLD ,VOLU, NEXT, KC_NO , KC_NO 	,
+        KC_NO , KC_NO  , RM_HUED  , RM_SATD , RM_SATU   , RM_HUEU, KC_NO  , KC_NO  ,  MUTE , KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO,
                      KC_TRNS , KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS   , KC_TRNS, KC_TRNS , KC_TRNS ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
@@ -79,7 +81,7 @@ void keyboard_post_init_user(void) {
     // Set the effect.
     rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_RIPPLE);
     // Set the palette and maximize saturation and brightness.
-    uint8_t palette_index = PALETTEFX_POLARIZED; // Set Carnival palette.
+    uint8_t palette_index = PALETTEFX_POLARIZED;
     rgb_matrix_sethsv_noeeprom(RGB_MATRIX_HUE_STEP * palette_index, 255, 255);
     // Set speed to default.
     rgb_matrix_set_speed_noeeprom(64);

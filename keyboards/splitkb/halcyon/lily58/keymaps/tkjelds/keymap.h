@@ -26,6 +26,13 @@ typedef enum { _BASE = 0, _NUM_ROW = 1, _SYMBOL = 2, _MEDIA = 3 } layers_id;
 #define T_BSPC LT(_NUM_ROW, KC_BSPC)
 #define L_TAB LSFT(KC_TAB)
 
+// Volume/Media control
+#define VOLU KC_AUDIO_VOL_UP
+#define VOLD KC_AUDIO_VOL_DOWN
+#define MUTE KC_AUDIO_MUTE
+#define NEXT KC_MEDIA_NEXT_TRACK
+#define PREV KC_MEDIA_PREV_TRACK
+
 // Custom keycodes
 typedef enum {
     LMNT = SAFE_RANGE,
