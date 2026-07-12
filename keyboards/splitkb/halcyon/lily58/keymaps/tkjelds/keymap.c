@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
         KC_TRNS	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, KC_TRNS	 	,
         KC_F1   , KC_F2 , KC_F3	, KC_F4	, KC_F5	, KC_F6 ,                   KC_LEFT , KC_DOWN, KC_UP, KC_RIGHT, KC_APP, KC_NO,
-        KC_F7   , KC_F8 , KC_F9 , KC_F10, KC_F11, KC_F12	, KC_TRNS  , KC_TRNS  ,KC_HOME   , KC_PGDN   , KC_PGUP   , KC_END    , BACK     , FRNT  ,
+        KC_F7   , KC_F8 , KC_F9 , KC_F10, KC_F11, KC_F12	, KC_F16   , KC_F17   ,KC_HOME   , KC_PGDN   , KC_PGUP   , KC_END    , BACK     , FRNT  ,
                           KC_TRNS	 , KC_TRNS	,MEDIA, KC_TRNS	,              ACPT , MEDIA , KC_TRNS, KC_NO ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
         L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
-        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	, KC_TRNS  , KC_TRNS  , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
+        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	, KC_F18   , KC_F19  , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                           KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
@@ -44,7 +44,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO , KC_NO	, KC_NO	  , KC_NO	, KC_NO	    , KC_NO	,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,
         KC_NO , KC_NO	, RM_SPDD , RM_SPDU , KC_NO     , LMNT,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO 	,
         KC_NO , KC_NO	 , RM_PREV  , RM_VALU , RM_VALD    , RM_NEXT   	,                  PREV, VOLD ,VOLU, NEXT, KC_NO , KC_NO 	,
-        KC_NO , KC_NO  , RM_HUED  , RM_SATD , RM_SATU   , RM_HUEU, KC_TRNS  , KC_TRNS  ,  MUTE , KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO,
+        KC_NO , KC_NO  , RM_HUED  , RM_SATD , RM_SATU   , RM_HUEU, KC_F20   , KC_F21  ,  MUTE , KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO,
                      KC_TRNS , KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS   , KC_TRNS, KC_TRNS , KC_TRNS ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
