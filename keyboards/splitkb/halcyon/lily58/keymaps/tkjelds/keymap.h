@@ -1,11 +1,12 @@
 #pragma once
 #include "quantum_keycodes.h"
-typedef enum { _BASE = 0, _NUM_ROW = 1, _SYMBOL_WIN = 2, _SYMBOL_MAC = 3,  _MEDIA = 4 } layers_id;
+typedef enum { _BASE_WIN = 0, _BASE_MAC = 1, _NUM_ROW = 4, _SYMBOL_WIN = 2, _SYMBOL_MAC = 3,  _MEDIA = 5 } layers_id;
 // typedef enum { _WINDOWS = 0, _MAC = 1,  _NUM_ROW = 2, _SYMBOL = 3, _MEDIA = 4 } layers_id;
 
 // Aliases for readability
 #define NUM_ROW MO(_NUM_ROW)
-#define SYMBOL MO(_SYMBOL_WIN)
+#define SYMBOL_WIN MO(_SYMBOL_WIN)
+#define SYMBOL_MAC MO(_SYMBOL_MAC)
 #define MEDIA MO(_MEDIA)
 
 #define FRNT LALT(KC_RIGHT)
@@ -24,7 +25,8 @@ typedef enum { _BASE = 0, _NUM_ROW = 1, _SYMBOL_WIN = 2, _SYMBOL_MAC = 3,  _MEDI
 
 // Layer tap aliases
 #define T_ESC LT(_NUM_ROW, KC_ESC)
-#define T_ENT LT(_SYMBOL, KC_ENT)
+#define WT_ENT LT(_SYMBOL_WIN, KC_ENT)
+#define MT_ENT LT(_SYMBOL_MAC, KC_ENT)
 #define T_BSPC LT(_NUM_ROW, KC_BSPC)
 #define L_TAB LSFT(KC_TAB)
 
@@ -41,6 +43,9 @@ typedef enum {
     OS_SYMBOL,
 }custom_keycodes;
 
+// Default layer switch
+#define DF_MAC DF(_BASE_MAC)
+#define DF_WIN DF(_BASE_WIN)
 // Mac aliases
 #define M_PIPE RALT(KC_7)// |
 #define M_LCBR RALT(LSFT(KC_8)) //{

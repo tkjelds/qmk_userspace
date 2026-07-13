@@ -5,7 +5,6 @@
 #include "keyboard.h"
 #include "keycodes.h"
 #include "keymap_danish.h"
-#include "os_detection.h"
 #include "process_combo.h"
 #include "progmem.h"
 #include "quantum.h"
@@ -16,12 +15,20 @@
 // clang-format off
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT_lily58_hlc(
+    [_BASE_WIN] = LAYOUT_lily58_hlc(
         KC_ESC	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, DK_PLUS	,
         KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
         DK_DQUO , HR_A	, HR_S  , HR_D  , HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
         DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_F13 , KC_F14   , DK_N	, DK_M	, DK_COMM, DK_DOT, DK_MINS, DK_UNDS,
-                           MS_BTN1 , SYMBOL, T_ESC, KC_SPC,                     T_ENT   , T_BSPC , NUM_ROW,  KC_F15 ,
+                           MS_BTN1 , SYMBOL_WIN, T_ESC, KC_SPC,                     WT_ENT   , T_BSPC , NUM_ROW,  KC_F15 ,
+// keyencoder
+                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
+    [_BASE_MAC] = LAYOUT_lily58_hlc(
+        KC_ESC	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, DK_PLUS	,
+        KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
+        DK_DQUO , HR_A	, HR_S  , HR_D  , HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
+        DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_F13 , KC_F14   , DK_N	, DK_M	, DK_COMM, DK_DOT, DK_MINS, DK_UNDS,
+                           MS_BTN1 , SYMBOL_MAC, T_ESC, KC_SPC,                     MT_ENT, T_BSPC , NUM_ROW,  KC_F15 ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
 
@@ -53,7 +60,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_MEDIA] = LAYOUT_lily58_hlc(
         KC_NO , KC_NO	, KC_NO	  , KC_NO	, KC_NO	    , KC_NO	,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,
-        KC_NO , KC_NO	, RM_SPDD , RM_SPDU , KC_NO     , LMNT,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO 	,
+        KC_NO , KC_NO	, RM_SPDD , RM_SPDU , KC_NO     , LMNT,                   DF_WIN, DF_MAC, KC_NO	, KC_NO	, KC_NO	, KC_NO 	,
         KC_NO , KC_NO	 , RM_PREV  , RM_VALU , RM_VALD    , RM_NEXT   	,                  PREV, VOLD ,VOLU, NEXT, KC_NO , KC_NO 	,
         KC_NO , KC_NO  , RM_HUED  , RM_SATD , RM_SATU   , RM_HUEU, KC_F20   , KC_F21  ,  MUTE , KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO,
                      KC_TRNS , KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS   , KC_TRNS, KC_TRNS , KC_TRNS ,
@@ -101,30 +108,29 @@ combo_t                key_combos[] = {
 //             return FLOW_TAP_TERM;
 //     }
 // }
-uint8_t symbol_layer = _SYMBOL_WIN;
-os_variant_t current_os = OS_UNSURE;
-void housekeeping_task_user(void) {
-    os_variant_t detected = detected_host_os();
-
-    if (detected != current_os) {
-        current_os = detected;
-
-        switch (current_os) {
-            case OS_MACOS:
-            case OS_IOS:
-                symbol_layer = _SYMBOL_MAC;
-                break;
-
-            case OS_WINDOWS:
-            case OS_LINUX:
-                symbol_layer = _SYMBOL_WIN;
-                break;
-
-            default:
-                break;
-        }
-    }
-}
+// os_variant_t current_os = OS_UNSURE;
+// void housekeeping_task_user(void) {
+//     os_variant_t detected = detected_host_os();
+//
+//     if (detected != current_os) {
+//         current_os = detected;
+//
+//         switch (current_os) {
+//             case OS_MACOS:
+//             case OS_IOS:
+//                 default_layer_set(1UL << _BASE_MAC);
+//                 break;
+//
+//             case OS_WINDOWS:
+//             case OS_LINUX:
+//                 default_layer_set(1UL << _BASE_WIN);
+//                 break;
+//
+//             default:
+//                 break;
+//         }
+//     }
+// }
 void keyboard_post_init_user(void) {
     // Set the effect.
     rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_FLOW);
@@ -141,14 +147,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record){
         case LMNT:
             lumino_cycle_3_state();
             return true;
-            break;
-        case OS_SYMBOL:
-            if (record->event.pressed) {
-                layer_on(symbol_layer);
-            } else {
-                layer_off(symbol_layer);
-            }
-            return false;
             break;
         }
     return true;
