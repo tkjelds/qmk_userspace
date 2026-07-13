@@ -1,3 +1,4 @@
+#include "keymap.h"
 #include <stdbool.h>
 #include <stdint.h>
 #include "keycodes.h"
@@ -8,52 +9,20 @@
 #include "quantum_keycodes.h"
 #include QMK_KEYBOARD_H //NOLINT
 
-// Layers
-enum layers { _BASE = 0, _NUM_ROW = 1, _SYMBOL = 2, _MEDIA = 3 };
-// Aliases for readability
-#define NUM_ROW MO(1)
-#define SYMBOL MO(2)
-#define MEDIA MO(3)
-
-#define FRNT LALT(KC_RIGHT)
-#define BACK LALT(KC_LEFT)
-#define ACPT LCTL(DK_Y)
-// Homerow Aliases
-#define HR_A LGUI_T(DK_A)
-#define HR_S LALT_T(DK_S)
-#define HR_D LSFT_T(DK_D)
-#define HR_F LCTL_T(DK_F)
-
-#define HR_J LCTL_T(DK_J)
-#define HR_K LSFT_T(DK_K)
-#define HR_L LALT_T(DK_L)
-#define HR_AE LGUI_T(DK_AE)
-
-// Layer tap aliases
-#define T_ESC LT(_NUM_ROW, KC_ESC)
-#define T_ENT LT(_SYMBOL, KC_ENT)
-#define T_BSPC LT(_NUM_ROW, KC_BSPC)
-#define L_TAB LSFT(KC_TAB)
-
-//  Custom keycodes
-enum custom_keycodes {
-    LMNT = SAFE_RANGE,
-};
-// combos
-// const uint16_t PROGMEM ew_combo[] = {KC_E, KC_W, COMBO_END};
-const uint16_t PROGMEM cv_combo[]   = {KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM vb_combo[]   = {KC_V, KC_B, COMBO_END};
-combo_t                key_combos[] = {
-    COMBO(cv_combo, MS_BTN1),
-    COMBO(vb_combo, MS_BTN2),
-}; // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [_BASE] = LAYOUT_corne_hlc(
+    [_BASE_WIN] = LAYOUT_corne_hlc(
         KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
         DK_DQUO	   , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
         DK_QUOT	   , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
-                                             KC_LGUI   , T_ESC     , KC_SPC	           , T_ENT	   , T_BSPC	   , KC_DEL,
+                                             KC_LGUI   , T_ESC     , KC_SPC	           , WT_ENT	   , T_BSPC	   , KC_DEL,
+                     KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
+
+    [_BASE_MAC] = LAYOUT_corne_hlc(
+        KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
+        DK_DQUO	   , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
+        DK_QUOT	   , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
+                                             KC_LGUI   , T_ESC     , KC_SPC	           , MT_ENT	   , T_BSPC	   , KC_DEL,
                      KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
 
     [_NUM_ROW] =   LAYOUT_corne_hlc(
@@ -63,7 +32,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , ACPT      , MEDIA	   , KC_RALT,
                      KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
 
-    [_SYMBOL] =  LAYOUT_corne_hlc(
+    [_SYMBOL_WIN] =  LAYOUT_corne_hlc(
+        L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
+        KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
+        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
+                                             KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT,
+                     KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
+    [_SYMBOL_MAC] =  LAYOUT_corne_hlc(
         L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
         KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
@@ -71,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
 
     [_MEDIA] =  LAYOUT_corne_hlc(
-        KC_TAB	  , KC_EXLM	  , KC_AT	  , KC_HASH	  , KC_DLR	  , KC_PERC	         , KC_CIRC	  , KC_AMPR	  , KC_ASTR	  , KC_LPRN	  , KC_RPRN	  , KC_BSPC	  ,
+        KC_TAB	  , KC_EXLM	  , KC_AT	  , KC_HASH	  , KC_DLR	  , KC_PERC	         , DF_WIN, DF_MAC, KC_ASTR	  , KC_LPRN	  , KC_RPRN	  , KC_BSPC	  ,
         KC_LCTL	  , XXXXXXX	  , RM_SPDD   , RM_SPDU   , XXXXXXX	  , XXXXXXX	         , KC_MINS	  , KC_VOLD   , KC_VOLU   , KC_RBRC	  , KC_BSLS	  , KC_GRV	  ,
         KC_LSFT	  , XXXXXXX	  , RM_VALD   , RM_VALU   , LMNT      , XXXXXXX	         , KC_UNDS	  , KC_PLUS	  , KC_LCBR	  , KC_RCBR	  , KC_PIPE	  , KC_TILD	  ,
                                             KC_LGUI   , _______   , KC_SPC           , KC_ENT     , _______   , KC_RALT ,
@@ -81,6 +56,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {[0] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)}, [1] = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)}, [2] = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)}, [3] = {ENCODER_CCW_CW(_______, _______), ENCODER_CCW_CW(_______, _______)}};
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
+
+// combos
+// const uint16_t PROGMEM ew_combo[] = {KC_E, KC_W, COMBO_END};
+const uint16_t PROGMEM cv_combo[]   = {KC_C, KC_V, COMBO_END};
+const uint16_t PROGMEM vb_combo[]   = {KC_V, KC_B, COMBO_END};
+combo_t                key_combos[] = {
+    COMBO(cv_combo, MS_BTN1),
+    COMBO(vb_combo, MS_BTN2),
+}; // clang-format off
 
 bool is_flow_tap_key(uint16_t keycode) {
     if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {

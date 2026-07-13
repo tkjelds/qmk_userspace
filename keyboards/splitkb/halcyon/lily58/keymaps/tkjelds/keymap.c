@@ -5,6 +5,7 @@
 #include "keyboard.h"
 #include "keycodes.h"
 #include "keymap_danish.h"
+#include "os_detection.h"
 #include "process_combo.h"
 #include "progmem.h"
 #include "quantum.h"
@@ -108,29 +109,29 @@ combo_t                key_combos[] = {
 //             return FLOW_TAP_TERM;
 //     }
 // }
-// os_variant_t current_os = OS_UNSURE;
-// void housekeeping_task_user(void) {
-//     os_variant_t detected = detected_host_os();
-//
-//     if (detected != current_os) {
-//         current_os = detected;
-//
-//         switch (current_os) {
-//             case OS_MACOS:
-//             case OS_IOS:
-//                 default_layer_set(1UL << _BASE_MAC);
-//                 break;
-//
-//             case OS_WINDOWS:
-//             case OS_LINUX:
-//                 default_layer_set(1UL << _BASE_WIN);
-//                 break;
-//
-//             default:
-//                 break;
-//         }
-//     }
-// }
+os_variant_t current_os = OS_UNSURE;
+void housekeeping_task_user(void) {
+    os_variant_t detected = detected_host_os();
+
+    if (detected != current_os) {
+        current_os = detected;
+
+        switch (current_os) {
+            case OS_MACOS:
+            case OS_IOS:
+                default_layer_set(1UL << _BASE_MAC);
+                break;
+
+            case OS_WINDOWS:
+            case OS_LINUX:
+                default_layer_set(1UL << _BASE_WIN);
+                break;
+
+            default:
+                break;
+        }
+    }
+}
 void keyboard_post_init_user(void) {
     // Set the effect.
     rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_FLOW);
