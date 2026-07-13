@@ -3,6 +3,7 @@
 #include <stdint.h>
 #include "keycodes.h"
 #include "keymap_danish.h"
+#include "os_detection.h"
 #include "process_combo.h"
 #include "progmem.h"
 #include "quantum.h"
@@ -15,7 +16,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
         DK_DQUO	   , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
         DK_QUOT	   , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
-                                             KC_LGUI   , T_ESC     , KC_SPC	           , WT_ENT	   , T_BSPC	   , KC_DEL,
+                                             MS_BTN1   , T_ESC     , KC_SPC	           , WT_ENT	   , T_BSPC	   , KC_DEL,
                      KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
 
     [_BASE_MAC] = LAYOUT_corne_hlc(
@@ -80,6 +81,30 @@ bool is_flow_tap_key(uint16_t keycode) {
             return true;
     }
     return false;
+}
+
+os_variant_t current_os = OS_UNSURE;
+void housekeeping_task_user(void) {
+    os_variant_t detected = detected_host_os();
+
+    if (detected != current_os) {
+        current_os = detected;
+
+        switch (current_os) {
+            case OS_MACOS:
+            case OS_IOS:
+                default_layer_set(1UL << _BASE_MAC);
+                break;
+
+            case OS_WINDOWS:
+            case OS_LINUX:
+                default_layer_set(1UL << _BASE_WIN);
+                break;
+
+            default:
+                break;
+        }
+    }
 }
 
 void keyboard_post_init_user(void) {

@@ -3,8 +3,5 @@ USER_NAME := halcyon_modules
 COMBO_ENABLE = yes
 # TAP_DANCE_ENABLE = yes
 MOUSEKEY_ENABLE = yes
+OS_DETECTION_ENABLE = yes
 
-
-ifdef HLC_TFT_DISPLAY
-	SRC += display.c
-endif
