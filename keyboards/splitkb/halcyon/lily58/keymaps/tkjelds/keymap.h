@@ -1,10 +1,12 @@
 #pragma once
 #include "quantum_keycodes.h"
-typedef enum { _BASE = 0, _NUM_ROW = 1, _SYMBOL = 2, _MEDIA = 3 } layers_id;
+typedef enum { _BASE = 0, _NUM_ROW = 1, _SYMBOL_WIN = 2, _SYMBOL_MAC = 3,  _MEDIA = 4 } layers_id;
+// typedef enum { _WINDOWS = 0, _MAC = 1,  _NUM_ROW = 2, _SYMBOL = 3, _MEDIA = 4 } layers_id;
+
 // Aliases for readability
-#define NUM_ROW MO(1)
-#define SYMBOL MO(2)
-#define MEDIA MO(3)
+#define NUM_ROW MO(_NUM_ROW)
+#define SYMBOL MO(_SYMBOL_WIN)
+#define MEDIA MO(_MEDIA)
 
 #define FRNT LALT(KC_RIGHT)
 #define BACK LALT(KC_LEFT)
@@ -36,4 +38,10 @@ typedef enum { _BASE = 0, _NUM_ROW = 1, _SYMBOL = 2, _MEDIA = 3 } layers_id;
 // Custom keycodes
 typedef enum {
     LMNT = SAFE_RANGE,
+    OS_SYMBOL,
 }custom_keycodes;
+
+// Mac aliases
+#define M_PIPE RALT(KC_7)// |
+#define M_LCBR RALT(LSFT(KC_8)) //{
+#define M_RCBR RALT(LSFT(KC_9)) //{

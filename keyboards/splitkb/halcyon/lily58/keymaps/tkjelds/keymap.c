@@ -1,8 +1,11 @@
 #include <stdbool.h>
 #include <stdint.h>
+#include "action_layer.h"
 #include "config.h"
+#include "keyboard.h"
 #include "keycodes.h"
 #include "keymap_danish.h"
+#include "os_detection.h"
 #include "process_combo.h"
 #include "progmem.h"
 #include "quantum.h"
@@ -17,7 +20,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, DK_PLUS	,
         KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
         DK_DQUO , HR_A	, HR_S  , HR_D  , HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
-        DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_F13 , KC_F14   , DK_N	, DK_M	, DK_COMM, DK_DOT,DK_UNDS, DK_MINS,
+        DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_F13 , KC_F14   , DK_N	, DK_M	, DK_COMM, DK_DOT, DK_MINS, DK_UNDS,
                            MS_BTN1 , SYMBOL, T_ESC, KC_SPC,                     T_ENT   , T_BSPC , NUM_ROW,  KC_F15 ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
@@ -31,10 +34,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
 
-    [_SYMBOL] = LAYOUT_lily58_hlc(
+    [_SYMBOL_WIN] = LAYOUT_lily58_hlc(
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
         L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
+        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	, KC_F18   , KC_F19  , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
+                          KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ,
+// keyencoder
+                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
+    [_SYMBOL_MAC] = LAYOUT_lily58_hlc(
+        KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
+        L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , M_LCBR , M_RCBR , DK_DLR	   , KC_NO	   , KC_NO ,
+        KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , M_PIPE , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
         KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	, KC_F18   , KC_F19  , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                           KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ,
 // keyencoder
@@ -52,8 +63,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
     [0] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},
-    [1] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},
     [2] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},
+    [1] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)},
     [3] = {ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_VOLD, KC_VOLU), ENCODER_CCW_CW(KC_PGUP, KC_PGDN), ENCODER_CCW_CW(KC_PGUP, KC_PGDN)}
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
@@ -79,9 +90,9 @@ combo_t                key_combos[] = {
 //             return true;
 //     }
 //     return false;
-// }
 
 // uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+//
 //     switch (keycode) {
 //         case HR_A :
 //         case HR_AE :
@@ -90,7 +101,30 @@ combo_t                key_combos[] = {
 //             return FLOW_TAP_TERM;
 //     }
 // }
+uint8_t symbol_layer = _SYMBOL_WIN;
+os_variant_t current_os = OS_UNSURE;
+void housekeeping_task_user(void) {
+    os_variant_t detected = detected_host_os();
 
+    if (detected != current_os) {
+        current_os = detected;
+
+        switch (current_os) {
+            case OS_MACOS:
+            case OS_IOS:
+                symbol_layer = _SYMBOL_MAC;
+                break;
+
+            case OS_WINDOWS:
+            case OS_LINUX:
+                symbol_layer = _SYMBOL_WIN;
+                break;
+
+            default:
+                break;
+        }
+    }
+}
 void keyboard_post_init_user(void) {
     // Set the effect.
     rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_FLOW);
@@ -107,6 +141,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record){
         case LMNT:
             lumino_cycle_3_state();
             return true;
+            break;
+        case OS_SYMBOL:
+            if (record->event.pressed) {
+                layer_on(symbol_layer);
+            } else {
+                layer_off(symbol_layer);
+            }
+            return false;
             break;
         }
     return true;
