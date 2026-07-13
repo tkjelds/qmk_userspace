@@ -71,13 +71,13 @@ bool is_flow_tap_key(uint16_t keycode) {
     }
     switch (get_tap_keycode(keycode)) {
         case HR_A:
-        case HR_AE:
-        case HR_D:
         case HR_S:
+        case HR_D:
         case HR_F:
         case HR_J:
         case HR_K:
         case HR_L:
+        case HR_AE:
             return false;
         case KC_SPC:
         case KC_A ... KC_Z:
@@ -92,8 +92,8 @@ bool is_flow_tap_key(uint16_t keycode) {
 
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
     switch (keycode) {
-    case HR_A :
-    case HR_AE :
+        case HR_A :
+        case HR_AE :
             return 175;  // Disable Flow Tap for this key.
         default:
             return FLOW_TAP_TERM;
