@@ -18,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
         DK_DQUO , HR_A	, HR_S  , HR_D  , HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
         DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_F13 , KC_F14   , DK_N	, DK_M	, DK_COMM, DK_DOT,DK_UNDS, DK_MINS,
-                          QK_REPEAT_KEY , SYMBOL, T_ESC, KC_SPC,                     T_ENT   , T_BSPC , NUM_ROW,  KC_F15 ,
+                           MS_BTN1 , SYMBOL, T_ESC, KC_SPC,                     T_ENT   , T_BSPC , NUM_ROW,  KC_F15 ,
 // keyencoder
                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
 
@@ -65,40 +65,31 @@ combo_t                key_combos[] = {
     COMBO(vb_combo, MS_BTN2),
 };
 
-bool is_flow_tap_key(uint16_t keycode) {
-    if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
-        return false; // Disable Flow Tap on hotkeys.
-    }
-    switch (get_tap_keycode(keycode)) {
-        case HR_A:
-        case HR_S:
-        case HR_D:
-        case HR_F:
-        case HR_J:
-        case HR_K:
-        case HR_L:
-        case HR_AE:
-            return false;
-        case KC_SPC:
-        case KC_A ... KC_Z:
-        case KC_DOT:
-        case KC_COMM:
-        case KC_SCLN:
-        case KC_SLSH:
-            return true;
-    }
-    return false;
-}
+// bool is_flow_tap_key(uint16_t keycode) {
+//     if ((get_mods() & (MOD_MASK_CG | MOD_BIT_LALT)) != 0) {
+//         return false; // Disable Flow Tap on hotkeys.
+//     }
+//     switch (get_tap_keycode(keycode)) {
+//         case KC_SPC:
+//         case KC_A ... KC_Z:
+//         case KC_DOT:
+//         case KC_COMM:
+//         case KC_SCLN:
+//         case KC_SLSH:
+//             return true;
+//     }
+//     return false;
+// }
 
-uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
-    switch (keycode) {
-        case HR_A :
-        case HR_AE :
-            return 175;  // Disable Flow Tap for this key.
-        default:
-            return FLOW_TAP_TERM;
-    }
-}
+// uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
+//     switch (keycode) {
+//         case HR_A :
+//         case HR_AE :
+//             return 175;  // Disable Flow Tap for this key.
+//         default:
+//             return FLOW_TAP_TERM;
+//     }
+// }
 
 void keyboard_post_init_user(void) {
     // Set the effect.
