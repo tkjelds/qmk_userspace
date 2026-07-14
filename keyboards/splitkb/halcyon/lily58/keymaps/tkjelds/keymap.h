@@ -47,6 +47,9 @@ typedef enum {
 #define DF_MAC DF(_BASE_MAC)
 #define DF_WIN DF(_BASE_WIN)
 // Mac aliases
-#define M_PIPE RALT(KC_7)// |
+#define M_PIPE RALT(DK_I)// |
 #define M_LCBR RALT(LSFT(KC_8)) //{
 #define M_RCBR RALT(LSFT(KC_9)) //{
+#define M_DLLR LSFT(KC_4) // $ 
+#define M_BSLH RALT(LSFT(KC_7)) // 
+#define M_AT RALT(DK_QUOT) // @ 

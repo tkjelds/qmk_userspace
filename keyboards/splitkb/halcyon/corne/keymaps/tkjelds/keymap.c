@@ -40,9 +40,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT,
                      KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
     [_SYMBOL_MAC] =  LAYOUT_corne_hlc(
-        L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
-        KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
-        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
+        L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , M_LCBR    , M_RCBR   , M_DLLR , KC_NO	   , KC_NO ,
+        KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , M_PIPE    , DK_LPRN   , DK_RPRN   , DK_SCLN   , M_BSLH, KC_NO ,
+        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , M_AT      , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT,
                      KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
 
