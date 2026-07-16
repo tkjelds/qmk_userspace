@@ -47,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO             , KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
 
     [_MEDIA] =  LAYOUT_corne_hlc(
-        KC_TAB	  , KC_EXLM	  , KC_AT	  , KC_HASH	  , KC_DLR	  , KC_PERC	         , DF_WIN, DF_MAC, KC_ASTR	  , KC_LPRN	  , KC_RPRN	  , KC_BSPC	  ,
-        KC_LCTL	  , XXXXXXX	  , RM_SPDD   , RM_SPDU   , XXXXXXX	  , XXXXXXX	         , KC_MINS	  , KC_VOLD   , KC_VOLU   , KC_RBRC	  , KC_BSLS	  , KC_GRV	  ,
-        KC_LSFT	  , XXXXXXX	  , RM_VALD   , RM_VALU   , LMNT      , XXXXXXX	         , KC_UNDS	  , KC_PLUS	  , KC_LCBR	  , KC_RCBR	  , KC_PIPE	  , KC_TILD	  ,
+        KC_TAB	  , KC_EXLM	  , KC_NO	  , KC_NO	, KC_NO	    , KC_NO	, DF_WIN, DF_MAC, KC_ASTR	  , KC_LPRN	  , KC_RPRN	  , KC_BSPC	  ,
+        KC_LCTL	  , XXXXXXX	  ,  RM_PREV  , RM_VALU , RM_VALD    , RM_NEXT   	,  PREV , VOLD , VOLU , NEXT , KC_BSLS	  , KC_GRV	  ,
+        KC_LSFT	  , XXXXXXX	  , RM_HUED  , RM_SATD , RM_SATU   , RM_HUEU, MUTE 	  , KC_PLUS	  , KC_LCBR	  , KC_RCBR	  , KC_PIPE	  , KC_TILD	  ,
                                             KC_LGUI   , _______   , KC_SPC           , KC_ENT     , _______   , KC_RALT ,
                     KC_MUTE   , KC_NO     , KC_NO     , KC_NO     , KC_NO            , KC_MUTE    , KC_NO     , KC_NO     , KC_NO     , KC_NO)  ,
 };
@@ -109,9 +109,9 @@ void housekeeping_task_user(void) {
 
 void keyboard_post_init_user(void) {
     // Set the effect.
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_RIPPLE);
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_COMMUNITY_MODULE_PALETTEFX_FLOW);
     // Set the palette and maximize saturation and brightness.
-    uint8_t palette_index = PALETTEFX_POLARIZED; // Set Carnival palette.
+    uint8_t palette_index =  PALETTEFX_BADWOLF; // Set Carnival palette.
     rgb_matrix_sethsv_noeeprom(RGB_MATRIX_HUE_STEP * palette_index, 255, 255);
     // Set speed to default.
     rgb_matrix_set_speed_noeeprom(64);
