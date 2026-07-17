@@ -1,6 +1,6 @@
 #pragma once
 
-#define TAPPING_TERM 259
+#define TAPPING_TERM 250
 #define PERMISSIVE_HOLD
 #define FLOW_TAP_TERM 80
 #define CHORDAL_HOLD
