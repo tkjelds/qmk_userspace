@@ -2,7 +2,7 @@
     "userspace_version": "1.1",
     "build_targets": [
         [
-            "splitkb/halcyon/corne/rev2",
+            "splitkb/halcyon/corne",
             "tkjelds",
             {
                 "HLC_CIRQUE_TRACKPAD": "1",
@@ -10,7 +10,7 @@
             }
         ],
         [
-            "splitkb/halcyon/corne/rev2",
+            "splitkb/halcyon/corne",
             "tkjelds",
             {
                 "HLC_TFT_DISPLAY": "1",
@@ -18,14 +18,14 @@
             }
         ]
         [
-            "splitkb/halcyon/lily58/rev2",
+            "splitkb/halcyon/lily58",
             "tkjelds",
             {
                 "HLC_TFT_DISPLAY": "1",
                 "TARGET": "Lily_TFT"
             }
         ],[
-            "splitkb/halcyon/lily58/rev2",
+            "splitkb/halcyon/lily58",
             "tkjelds",
             {
                 "HLC_CIRQUE_TRACKPAD": "1",
