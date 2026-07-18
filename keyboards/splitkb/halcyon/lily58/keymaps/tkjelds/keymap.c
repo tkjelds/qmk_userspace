@@ -16,57 +16,50 @@
 // clang-format off
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE_WIN] = LAYOUT_lily58_hlc(
+    [_BASE_WIN] = LAYOUT(
         KC_ESC	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, DK_PLUS	,
         KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
         DK_DQUO , HR_A	, HR_S  , HR_D  , HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
         DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_F13 , KC_F14   , DK_N	, DK_M	, DK_COMM, DK_DOT, DK_MINS, DK_UNDS,
-                           MS_BTN1 , SYMBOL_WIN, T_ESC, KC_SPC,                     WT_ENT   , T_BSPC , NUM_ROW,  KC_F15 ,
+                           MS_BTN1 , SYMBOL_WIN, T_ESC, KC_SPC,                     WT_ENT   , T_BSPC , NUM_ROW,  KC_F15),
 // keyencoder
-                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
-    [_BASE_MAC] = LAYOUT_lily58_hlc(
+    [_BASE_MAC] = LAYOUT(
         KC_ESC	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, DK_PLUS	,
         KC_TAB	, DK_Q	, DK_W	, DK_E	, DK_R	, DK_T	,                   DK_Y	, DK_U	, DK_I	, DK_O	, DK_P	, DK_ARNG 	,
         DK_DQUO , HR_A	, HR_S  , HR_D  , HR_F	, DK_G	,                   DK_H	, HR_J  , HR_K  , HR_L  , HR_AE , DK_OSTR 	,
         DK_QUOT , DK_Z	, DK_X	, DK_C	, DK_V	, DK_B	, KC_F13 , KC_F14   , DK_N	, DK_M	, DK_COMM, DK_DOT, DK_MINS, DK_UNDS,
-                           MS_BTN1 , SYMBOL_MAC, T_ESC, KC_SPC,                     MT_ENT, T_BSPC , NUM_ROW,  KC_F15 ,
+                           MS_BTN1 , SYMBOL_MAC, T_ESC, KC_SPC,                     MT_ENT, T_BSPC , NUM_ROW,  KC_F15),
 // keyencoder
-                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
 
-    [_NUM_ROW] = LAYOUT_lily58_hlc(
+    [_NUM_ROW] = LAYOUT(
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
         KC_TRNS	, DK_1	, DK_2	, DK_3	, DK_4	, DK_5	,                   DK_6	, DK_7	, DK_8	, DK_9	, DK_0	, KC_TRNS	 	,
         KC_F1   , KC_F2 , KC_F3	, KC_F4	, KC_F5	, KC_F6 ,                   KC_LEFT , KC_DOWN, KC_UP, KC_RIGHT, KC_APP, KC_NO,
         KC_F7   , KC_F8 , KC_F9 , KC_F10, KC_F11, KC_F12	, KC_F16   , KC_F17   ,KC_HOME   , KC_PGDN   , KC_PGUP   , KC_END    , BACK     , FRNT  ,
-                          KC_TRNS	 , KC_TRNS	,MEDIA, KC_TRNS	,              ACPT , MEDIA , KC_TRNS, KC_NO ,
-// keyencoder
-                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
+                          KC_TRNS	 , KC_TRNS	,MEDIA, KC_TRNS	,              ACPT , MEDIA , KC_TRNS, KC_NO),
 
-    [_SYMBOL_WIN] = LAYOUT_lily58_hlc(
+// keyencoder
+
+    [_SYMBOL_WIN] = LAYOUT(
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
         L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
         KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	, KC_F18   , KC_F19  , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
-                          KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ,
+                          KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ),
 // keyencoder
-                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
-    [_SYMBOL_MAC] = LAYOUT_lily58_hlc(
+    [_SYMBOL_MAC] = LAYOUT(
         KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,              KC_TRNS	, KC_TRNS, KC_TRNS, KC_TRNS	, KC_TRNS	, KC_TRNS	,
         L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , M_LCBR , M_RCBR , M_DLLR , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , M_PIPE , DK_LPRN   , DK_RPRN   , DK_SCLN   , M_BSLH , KC_NO ,
         KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	, KC_F18   , KC_F19  , M_AT , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
-                          KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ,
-// keyencoder
-                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
+                          KC_NO , KC_TRNS	, MEDIA,     KC_TRNS	,               KC_TRNS	 , KC_TRNS	, KC_TRNS	 , KC_TRNS	 ),
 
-    [_MEDIA] = LAYOUT_lily58_hlc(
+    [_MEDIA] = LAYOUT(
         KC_NO , KC_NO	, KC_NO	  , KC_NO	, KC_NO	    , KC_NO	,                   KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO	,
         KC_NO , KC_NO	, RM_SPDD , RM_SPDU , KC_NO     , LMNT,                   DF_WIN, DF_MAC, KC_NO	, KC_NO	, KC_NO	, KC_NO 	,
         KC_NO , KC_NO	 , RM_PREV  , RM_VALU , RM_VALD    , RM_NEXT   	,                  PREV, VOLD ,VOLU, NEXT, KC_NO , KC_NO 	,
         KC_NO , KC_NO  , RM_HUED  , RM_SATD , RM_SATU   , RM_HUEU, KC_F20   , KC_F21  ,  MUTE , KC_NO	, KC_NO	, KC_NO	, KC_NO	, KC_NO,
-                     KC_TRNS , KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS   , KC_TRNS, KC_TRNS , KC_TRNS ,
-// keyencoder
-                               KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO, KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO),
+                     KC_TRNS , KC_TRNS, KC_TRNS, KC_TRNS,                   KC_TRNS   , KC_TRNS, KC_TRNS , KC_TRNS )
 };
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
