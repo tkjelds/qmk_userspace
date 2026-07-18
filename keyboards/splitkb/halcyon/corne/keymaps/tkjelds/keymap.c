@@ -7,6 +7,7 @@
 #include "config.h"
 #include "keycodes.h"
 #include "keymap_danish.h"
+#include "keymap_us.h"
 #include "modifiers.h"
 #include "os_detection.h"
 #include "process_combo.h"
@@ -19,15 +20,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE_WIN] = LAYOUT_split_3x6_3(
         KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
-        DK_DQUO	   , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
-        DK_QUOT	   , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
-                                             KC_ESC    , NUM_ROW   , KC_SPC	           , WT_ENT	   , T_BSPC	   , SYMBOL_WIN)  ,
+        KC_BSPC    , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
+        DK_DQUO    , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
+                                             KC_ESC    , NUM_ROW   , KC_SPC	           , KC_ENT    , SYMBOL_WIN, SYMBOL_WIN)  ,
 
     [_BASE_MAC] = LAYOUT_split_3x6_3(
         KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
-        DK_DQUO	   , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
+        KC_BSPC    , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
         DK_QUOT	   , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
-                                             KC_ESC    , NUM_ROW   , KC_SPC	           , MT_ENT	   , T_BSPC	   , SYMBOL_MAC)  ,
+                                             KC_ESC    , NUM_ROW   , KC_SPC	           , KC_ENT    , SYMBOL_MAC, SYMBOL_MAC)  ,
 
     [_NUM_ROW] =   LAYOUT_split_3x6_3(
         KC_TAB	   , DK_1	   , DK_2	   , DK_3	   , DK_4	   , DK_5	           , DK_6	   , DK_7	   , DK_8	   , DK_9	   , DK_0	   , KC_NO ,
@@ -38,12 +39,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_SYMBOL_WIN] =  LAYOUT_split_3x6_3(
         L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , DK_LCBR   , DK_RCBR   , DK_DLR	   , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , DK_PIPE   , DK_LPRN   , DK_RPRN   , DK_SCLN   , DK_BSLS   , KC_NO ,
-        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
+        DK_QUOT    , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT)  ,
     [_SYMBOL_MAC] =  LAYOUT_split_3x6_3(
         L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , M_LCBR    , M_RCBR    , M_DLLR    , KC_NO	   , KC_NO ,
         KC_CAPS	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , M_PIPE    , DK_LPRN   , DK_RPRN   , DK_SCLN   , M_BSLH    , KC_NO ,
-        KC_NO	   , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , M_AT      , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
+        DK_QUOT    , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , M_AT      , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT)  ,
 
     [_MEDIA] =  LAYOUT_split_3x6_3(
