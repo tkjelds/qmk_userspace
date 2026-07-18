@@ -47,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT)  ,
 
     [_MEDIA] =  LAYOUT_split_3x6_3(
-        KC_TAB	   , KC_EXLM   , KC_NO	   , KC_NO	   , KC_NO	   , LMNT              , DF_WIN    , DF_MAC    , KC_ASTR   , KC_LPRN   , KC_RPRN   , KC_BSPC ,
-        KC_LCTL	   , XXXXXXX   , RM_PREV   , RM_VALU   , RM_VALD   , RM_NEXT   	       , PREV      , VOLD      , VOLU      , NEXT      , KC_BSLS   , KC_GRV	  ,
-        KC_LSFT	   , XXXXXXX   , RM_HUED   , RM_SATD   , RM_SATU   , RM_HUEU           , MUTE 	   , KC_PLUS   , KC_LCBR   , KC_RCBR   , KC_PIPE   , KC_TILD ,
+        KC_NO	   , KC_NO     , KC_NO	   , KC_NO	   , KC_NO	   , LMNT              , KC_F13    , KC_F14    , KC_F15    , KC_NO     , KC_NO     , KC_NO ,
+        KC_NO	   , XXXXXXX   , RM_PREV   , RM_VALU   , RM_VALD   , RM_NEXT   	       , PREV      , VOLD      , VOLU      , NEXT      , KC_NO     , KC_NO ,
+        KC_NO	   , XXXXXXX   , RM_HUED   , RM_SATD   , RM_SATU   , RM_HUEU           , MUTE 	   , KC_NO     , KC_NO     , KC_NO     , KC_NO     , KC_NO ,
                                              KC_LGUI   , _______   , KC_SPC            , KC_ENT    , _______   , KC_RALT)  ,
 };
 // clang-format on
