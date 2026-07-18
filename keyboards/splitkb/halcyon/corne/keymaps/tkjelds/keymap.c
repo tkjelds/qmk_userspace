@@ -16,20 +16,19 @@
 #include "quantum_keycodes.h"
 #include QMK_KEYBOARD_H //NOLINT
 
+// clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE_WIN] = LAYOUT_split_3x6_3(
         KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
         KC_BSPC    , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
         DK_DQUO    , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
-                                             KC_ESC    , NUM_ROW   , KC_SPC	           , KC_ENT    , SYMBOL_WIN, SYMBOL_WIN)  ,
-
+                                             KC_ESC    , NUM_ROW   , KC_SPC	           , KC_ENT    , SYMBOL_WIN, CW_TOGG)  ,
     [_BASE_MAC] = LAYOUT_split_3x6_3(
         KC_TAB	   , DK_Q	   , DK_W	   , DK_E	   , DK_R	   , DK_T	           , DK_Y	   , DK_U	   , DK_I	   , DK_O	   , DK_P	   , DK_ARNG ,
         KC_BSPC    , HR_A      , HR_S	   , HR_D	   , HR_F	   , DK_G	           , DK_H	   , HR_J	   , HR_K	   , HR_L	   , HR_AE     , DK_OSTR ,
         DK_QUOT	   , DK_Z	   , DK_X	   , DK_C	   , DK_V	   , DK_B	           , DK_N	   , DK_M	   , DK_COMM   , DK_DOT	   , DK_MINS   , DK_UNDS ,
-                                             KC_ESC    , NUM_ROW   , KC_SPC	           , KC_ENT    , SYMBOL_MAC, SYMBOL_MAC)  ,
-
+                                             KC_ESC    , NUM_ROW   , KC_SPC	           , KC_ENT    , SYMBOL_MAC, CW_TOGG)  ,
     [_NUM_ROW] =   LAYOUT_split_3x6_3(
         KC_TAB	   , DK_1	   , DK_2	   , DK_3	   , DK_4	   , DK_5	           , DK_6	   , DK_7	   , DK_8	   , DK_9	   , DK_0	   , KC_NO ,
         KC_F1	   , KC_F2     , KC_F3	   , KC_F4	   , KC_F5	   , KC_F6	           , KC_LEFT   , KC_DOWN   , KC_UP	   , KC_RIGHT  , KC_APP    , KC_NO ,
@@ -49,7 +48,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_MEDIA] =  LAYOUT_split_3x6_3(
         KC_TAB	   , KC_EXLM   , KC_NO	   , KC_NO	   , KC_NO	   , LMNT              , DF_WIN    , DF_MAC    , KC_ASTR   , KC_LPRN   , KC_RPRN   , KC_BSPC ,
-        KC_LCTL	   , XXXXXXX   ,  RM_PREV  , RM_VALU   , RM_VALD   , RM_NEXT   	       , PREV      , VOLD      , VOLU      , NEXT      , KC_BSLS   , KC_GRV	  ,
+        KC_LCTL	   , XXXXXXX   , RM_PREV   , RM_VALU   , RM_VALD   , RM_NEXT   	       , PREV      , VOLD      , VOLU      , NEXT      , KC_BSLS   , KC_GRV	  ,
         KC_LSFT	   , XXXXXXX   , RM_HUED   , RM_SATD   , RM_SATU   , RM_HUEU           , MUTE 	   , KC_PLUS   , KC_LCBR   , KC_RCBR   , KC_PIPE   , KC_TILD ,
                                              KC_LGUI   , _______   , KC_SPC            , KC_ENT    , _______   , KC_RALT)  ,
 };
