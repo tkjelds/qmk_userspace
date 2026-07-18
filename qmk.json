@@ -25,13 +25,7 @@
                 "TARGET": "Lily_TFT"
             }
         ],
-        [
-            "splitkb/halcyon/lily58/rev2",
-            "tkjelds",
             {
                 "HLC_CIRQUE_TRACKPAD": "1",
                 "TARGET": "Lily_cirque"
-            }
-        ]
-    ]
 }
