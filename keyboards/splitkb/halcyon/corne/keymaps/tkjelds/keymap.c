@@ -1,20 +1,18 @@
-#include "keymap.h"
 #include <stdbool.h>
 #include <stdint.h>
-#include "action.h"
-#include "action_tapping.h"
-#include "action_util.h"
+#include "action_layer.h"
 #include "config.h"
+#include "keyboard.h"
 #include "keycodes.h"
 #include "keymap_danish.h"
 #include "keymap_us.h"
-#include "modifiers.h"
 #include "os_detection.h"
 #include "process_combo.h"
 #include "progmem.h"
 #include "quantum.h"
 #include "quantum_keycodes.h"
-#include QMK_KEYBOARD_H //NOLINT
+#include "rgb_matrix.h"
+#include "keymap.h"
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -41,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DK_DQUO    , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT)  ,
     [_SYMBOL_MAC] =  LAYOUT_split_3x6_3(
-        L_TAB	   , DK_GRV	   , DK_W      , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , M_LCBR    , M_RCBR    , KC_GRV    , KC_NO	   , KC_NO ,
+        L_TAB	   , DK_GRV	   , DK_LABK   , DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , M_LCBR    , M_RCBR    , KC_GRV    , KC_NO	   , KC_NO ,
         DK_QUOT	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , M_PIPE    , DK_LPRN   , DK_RPRN   , DK_SCLN   , M_BSLH    , KC_NO ,
         DK_DQUO    , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , M_AT      , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT)  ,

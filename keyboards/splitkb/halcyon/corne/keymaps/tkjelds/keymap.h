@@ -1,7 +1,7 @@
 #pragma once
 #include "quantum_keycodes.h"
-// Layers
 typedef enum { _BASE_WIN = 0, _BASE_MAC = 1, _NUM_ROW = 4, _SYMBOL_WIN = 2, _SYMBOL_MAC = 3,  _MEDIA = 5 } layers_id;
+// typedef enum { _WINDOWS = 0, _MAC = 1,  _NUM_ROW = 2, _SYMBOL = 3, _MEDIA = 4 } layers_id;
 
 // Aliases for readability
 #define NUM_ROW MO(_NUM_ROW)
@@ -37,10 +37,11 @@ typedef enum { _BASE_WIN = 0, _BASE_MAC = 1, _NUM_ROW = 4, _SYMBOL_WIN = 2, _SYM
 #define NEXT KC_MEDIA_NEXT_TRACK
 #define PREV KC_MEDIA_PREV_TRACK
 
-//  Custom keycodes
-enum custom_keycodes {
+// Custom keycodes
+typedef enum {
     LMNT = SAFE_RANGE,
-};
+    OS_SYMBOL,
+}custom_keycodes;
 
 // Default layer switch
 #define DF_MAC DF(_BASE_MAC)
@@ -48,7 +49,7 @@ enum custom_keycodes {
 // Mac aliases
 #define M_PIPE RALT(DK_I)// |
 #define M_LCBR RALT(LSFT(KC_8)) //{
-#define M_RCBR RALT(LSFT(KC_9)) //{
-#define M_DLLR LSFT(KC_4) // $ 
-#define M_BSLH RALT(LSFT(KC_7)) // 
-#define M_AT RALT(DK_QUOT) // @ 
+#define M_RCBR RALT(LSFT(KC_9)) //}
+#define M_DLLR LSFT(KC_4) // $
+#define M_BSLH RALT(LSFT(KC_7)) //
+#define M_AT RALT(DK_QUOT) // @
