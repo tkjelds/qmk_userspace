@@ -13,7 +13,6 @@
 #include "quantum_keycodes.h"
 #include "rgb_matrix.h"
 #include "keymap.h"
-
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -39,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         DK_DQUO    , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , DK_AT	   , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT)  ,
     [_SYMBOL_MAC] =  LAYOUT_split_3x6_3(
-        L_TAB	   , KC_GRV    , LSFT(KC_GRV), DK_RABK   , DK_MINS   , DK_SLSH	       , DK_CIRC   , M_LCBR    , M_RCBR    , DK_GRV	   , KC_NO	   , KC_NO ,
+        L_TAB	   , DK_GRV    ,KC_GRV     , LSFT(KC_GRV), DK_MINS , DK_SLSH	       , DK_CIRC   , M_LCBR    , M_RCBR    , DK_LABK   , KC_NO	   , KC_NO ,
         DK_QUOT	   , DK_EXLM   , DK_ASTR   , DK_QUES   , DK_EQL	   , DK_AMPR	       , M_PIPE    , DK_LPRN   , DK_RPRN   , DK_SCLN   , M_BSLH    , KC_NO ,
         DK_DQUO    , DK_TILD   , DK_PLUS   , DK_LBRC   , DK_RBRC   , DK_PERC	       , M_AT      , DK_COLN   , DK_HASH   , KC_TRNS   , KC_TRNS   , KC_TRNS  ,
                                              KC_TRNS   , MEDIA	   , KC_SPC	           , KC_ENT	   , MEDIA	   , KC_RALT)  ,
