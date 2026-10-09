@@ -16,7 +16,7 @@
                 "HLC_TFT_DISPLAY": "1",
                 "TARGET": "Corne_TFT"
             }
-        ]
+        ],
         [
             "splitkb/halcyon/lily58/rev2",
             "tkjelds",
@@ -24,7 +24,8 @@
                 "HLC_TFT_DISPLAY": "1",
                 "TARGET": "Lily_TFT"
             }
-        ],[
+        ],
+        [
             "splitkb/halcyon/lily58/rev2",
             "tkjelds",
             {
